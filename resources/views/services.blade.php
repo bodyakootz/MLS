@@ -39,6 +39,7 @@
 <div class="container">
     <div class="content">
         <div class="title">This is services</div>
+        <a href="{{l('service', ['Service_1', '1', $lang])}}">Service_1</a>
     </div>
 </div>
 </body>

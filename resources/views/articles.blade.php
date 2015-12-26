@@ -39,6 +39,15 @@
 <div class="container">
     <div class="content">
         <div class="title">This is articles</div>
+        @foreach($articles as $article)
+            <a href="{{l('article', [s($article->title), $article->article_id, $article->language])}}">{{$article->title}}</a>
+            <p>{{$article->date}}</p>
+            <p>{{$article->body}}</p>
+            <p>{{$article->category}}</p>
+            <p>{{$article->preview}}</p>
+            <p>{{$article->language}}</p>
+        @endforeach
+       {{$articles->render()}}
     </div>
 </div>
 </body>

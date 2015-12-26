@@ -22,6 +22,7 @@ function v() {
         'logout'			=> null,
         'admin_feedback'    =>'admin/feedback',
         'admin_subscribers' =>'admin/subscribers',
+        'error_c'             =>'errors/404',
 
     ];
 
@@ -32,6 +33,9 @@ function l($route_name, $params=[]) {
     return URL::route($route_name, $params);
 }
 
+/**
+ * @return null|string
+ */
 function r() {
     return Route::currentRouteName();
 }
@@ -73,6 +77,8 @@ function dir_path($path='root') {
         return public_path().DIRECTORY_SEPARATOR.'img'.DIRECTORY_SEPARATOR.'photos'.DIRECTORY_SEPARATOR.'articles';
     } elseif ('estates' == $path) {
         return public_path().DIRECTORY_SEPARATOR.'img'.DIRECTORY_SEPARATOR.'photos'.DIRECTORY_SEPARATOR.'estates';
+    } elseif ('resources') {
+        return resource_path().DIRECTORY_SEPARATOR.'lang'.DIRECTORY_SEPARATOR.'locales';
     } else {
         return public_path();
     }

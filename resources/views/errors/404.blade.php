@@ -38,17 +38,7 @@
 <body>
 <div class="container">
     <div class="content">
-        <div class="title">This is index</div>
-        @foreach($articles as $article)
-            <p>{{$article->title}}</p>
-            <p>{{$article->date}}</p>
-            <p>{{$article->body}}</p>
-            <p>{{$article->category}}</p>
-            <p>{{$article->preview}}</p>
-            <p>{{$article->language}}</p>
-        @endforeach
-        <a href="{{l('index', [$lang = 'en'])}}">EN</a>
-        <p>{{$text->bla}}</p>
+        <div class="title">This is ERROR {{$error}}</div>
     </div>
 </div>
 </body>

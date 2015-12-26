@@ -39,7 +39,23 @@
 <div class="container">
     <div class="content">
         <div class="title">This is article</div>
+            <a href="{{l('article', [s($article->title), $article->article_id, $article->language])}}">{{$article->title}}</a>
+            <p>{{$article->date}}</p>
+            <div>{{print($article->body)}}</div>
+            <p>{{$article->category}}</p>
+            <p>{{$article->preview}}</p>
+            <p>{{$article->language}}</p>
+        <p>BREAK</p>
+        @foreach($same_articles as $same_article)
+            <a href="{{l('article', [s($same_article->title), $same_article->article_id, $same_article->language])}}">{{$same_article->title}}</a>
+            <p>{{$same_article->date}}</p>
+            <div>{{print($same_article->body)}}</div>
+            <p>{{$same_article->category}}</p>
+            <p>{{$same_article->preview}}</p>
+            <p>{{$same_article->language}}</p>
+        @endforeach
     </div>
+
 </div>
 </body>
 </html>

@@ -1,21 +1,22 @@
 <?php
 //STATIC PAGES
-Route::get('/',                                ['as'=>'index',          'uses'=>'MainController@index']);
-Route::get('/about',                           ['as'=>'about',          'uses'=>'MainController@about']);
-Route::get('/contacts',                        ['as'=>'contacts',       'uses'=>'MainController@contacts']);
+Route::get('/{lang?}',                                 ['as'=>'index',          'uses'=>'MainController@index']);
+Route::get('/about/{lang?}',                           ['as'=>'about',          'uses'=>'MainController@about']);
+Route::get('/contacts/{lang?}',                        ['as'=>'contacts',       'uses'=>'MainController@contacts']);
+Route::get('/error',                                   ['as'=>'error_c',          'uses'=>'MainController@error']);
 
 //ARTICLES
-Route::post('/admin/create_article',				['as'=>'create_article', 'uses'=>'ArticleController@create_article', 'middleware'=>'auth']); // redirect
-Route::get('/admin/articles', 						['as'=>'admin_articles', 'uses'=>'ArticleController@admin_articles', 'middleware'=>'auth']); // articles (with delete form + change link)
-Route::get('/articles', 							['as'=>'articles', 		 'uses'=>'ArticleController@articles']); // articles
-Route::get('/articles/{article}/{article_id}', 		['as'=>'article', 		 'uses'=>'ArticleController@article']); // article
-Route::post('/admin/change_article/{article_id}', 	['as'=>'change_article', 'uses'=>'ArticleController@change_article', 'middleware'=>'auth']); // article_change (links)
-Route::post('/admin/update_article', 				['as'=>'update_article', 'uses'=>'ArticleController@update_article', 'middleware'=>'auth']); // redirect
-Route::post('/admin/delete_article/{article_id}', 	['as'=>'delete_article', 'uses'=>'ArticleController@delete_article', 'middleware'=>'auth']); // redirect->with
+Route::post('/admin/create_article',				  ['as'=>'create_article', 'uses'=>'ArticleController@create_article', 'middleware'=>'auth']); // redirect
+Route::get('/admin/articles', 						  ['as'=>'admin_articles', 'uses'=>'ArticleController@admin_articles', 'middleware'=>'auth']); // articles (with delete form + change link)
+Route::get('/articles/{lang?}', 					  ['as'=>'articles', 		 'uses'=>'ArticleController@articles']); // articles
+Route::get('/articles/{article}/{article_id}/{lang?}',['as'=>'article', 		 'uses'=>'ArticleController@article']); // article
+Route::post('/admin/change_article/{article_id}', 	  ['as'=>'change_article', 'uses'=>'ArticleController@change_article', 'middleware'=>'auth']); // article_change (links)
+Route::post('/admin/update_article', 				  ['as'=>'update_article', 'uses'=>'ArticleController@update_article', 'middleware'=>'auth']); // redirect
+Route::post('/admin/delete_article/{article_id}', 	  ['as'=>'delete_article', 'uses'=>'ArticleController@delete_article', 'middleware'=>'auth']); // redirect->with
 
 //SERVICES
-Route::get('/services',                         ['as'=>'services',      'uses'=>'ServiceController@services']);
-Route::get('/services/{$service}/{service_id}', ['as'=>'service',       'uses'=>'ServiceController@service']);
+Route::get('/services/{lang?}',                         ['as'=>'services',      'uses'=>'MainController@services']);
+Route::get('/services/{service}/{service_id}/{lang?}',  ['as'=>'service',       'uses'=>'MainController@service']);
 
 //
 

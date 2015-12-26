@@ -39,6 +39,7 @@
 <div class="container">
     <div class="content">
         <div class="title">This is about</div>
+        <p>{{$text->bla}}</p>
     </div>
 </div>
 </body>
